@@ -1,10 +1,6 @@
 package com.ga5000.advent;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,27 +8,8 @@ public class DayTwo {
 
     public static void main(String[] args) {
         File file = new File("src/main/java/com/ga5000/advent/inputs/dayTwo");
-        List<String> input = readInput(file);
-        partOne(input);
-    }
-
-    private static List<String> readInput(File file) {
-        return getStrings(file);
-    }
-
-    static List<String> getStrings(File file) {
-        List<String> lines = new ArrayList<>();
-
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                lines.add(line.trim());
-            }
-        } catch (IOException e) {
-            System.err.println("Error reading the file: " + e.getMessage());
-        }
-
-        return lines;
+        List<String> input = IOUtil.readInputDaysOneAndTwo(file);
+        solution(input);
     }
 
     private static List<LinkedList<Integer>> parseData(List<String> data) {
@@ -50,7 +27,7 @@ public class DayTwo {
         return result;
     }
 
-    private static void partOne(List<String> data) {
+    private static void solution(List<String> data) {
         int safeCount = 0;
         List<LinkedList<Integer>> parsedData = parseData(data);
 

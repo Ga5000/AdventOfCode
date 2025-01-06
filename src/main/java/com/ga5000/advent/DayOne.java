@@ -2,19 +2,14 @@ package com.ga5000.advent;
 import java.io.File;
 import java.util.*;
 
-import static com.ga5000.advent.DayTwo.getStrings;
 
 public class DayOne {
     public static void main(String[] args) {
         File file = new File("src/main/java/com/ga5000/advent/inputs/dayOne");
-        List<String> input = readInput(file);
+        List<String> input = IOUtil.readInputDaysOneAndTwo(file);
 
         partOne(input);
         partTwo(input);
-    }
-
-    private static List<String> readInput(File file){
-        return getStrings(file);
     }
 
     private static List<List<Long>> parseData(List<String> data){
